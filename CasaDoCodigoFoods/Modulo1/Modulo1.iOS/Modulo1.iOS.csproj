@@ -133,4 +133,7 @@
       <Name>Modulo1</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icone_garcons.png" />
+  </ItemGroup>
 </Project>

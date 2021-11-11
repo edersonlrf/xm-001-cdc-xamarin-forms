@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Modulo1.Pages;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -8,27 +9,9 @@ namespace Modulo1
     {
         public App()
         {
-            //InitializeComponent();
+            InitializeComponent();
 
-            var content = new ContentPage
-            {
-                Title = "Modulo1",
-                Content = new StackLayout
-                {
-                    VerticalOptions = LayoutOptions.Center,
-                    Children =
-                    {
-                        new Label
-                        {
-                            HorizontalTextAlignment = TextAlignment.Center,
-                            Text = "Welcome to Xamarin Forms!"
-                        }
-                    }
-                }
-            };
-
-            //MainPage = new MainPage();
-            MainPage = content;
+            MainPage = new NavigationPage(new MenuPage());
         }
 
         protected override void OnStart()
