@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace Modulo1.Pages.Entregadores
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class EntregadoresPage : TabbedPage
+    public partial class EntregadoresNewPage : ContentPage
     {
-        public EntregadoresPage()
+        public EntregadoresNewPage()
         {
             InitializeComponent();
         }
