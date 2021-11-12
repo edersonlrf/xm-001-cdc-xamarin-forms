@@ -8,6 +8,6 @@
              x:Class="Modulo1.Paginas.TiposItensCardapio.TiposItensCardapioPage">
     <TabbedPage.Children>
         <ep:TiposItensCardapioListPage Title="Listagem" Icon="icone_list.png" x:Name="listagem"/>
-        <!--<ep:TiposItensCardapioNewPage Title="Inserir Novo" Icon="icone_new.png" x:Name="inserir"/>-->
+        <ep:TiposItensCardapioNewPage Title="Inserir Novo" Icon="icone_new.png" x:Name="inserir"/>
     </TabbedPage.Children>
 </TabbedPage>

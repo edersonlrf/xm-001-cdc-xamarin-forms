@@ -47,17 +47,30 @@ namespace Modulo1.Dal
                 CaminhoArquivoFoto = "carnes.png"
             });
         }
+
         public static TipoItemCardapioDAL GetInstance()
         {
             return TipoItemCardapioInstance;
+
         }
         public ObservableCollection<TipoItemCardapio> GetAll()
         {
             return TiposItensCardapio;
         }
+
         public void Add(TipoItemCardapio tipoItemCardapio)
         {
             this.TiposItensCardapio.Add(tipoItemCardapio);
+        }
+
+        public void Remove(TipoItemCardapio tipoItemCardapio)
+        {
+            this.TiposItensCardapio.Remove(tipoItemCardapio);
+        }
+
+        public void Update(TipoItemCardapio tipoItemCardapio)
+        {
+            this.TiposItensCardapio[this.TiposItensCardapio.IndexOf(tipoItemCardapio)] = tipoItemCardapio;
         }
     }
 }
