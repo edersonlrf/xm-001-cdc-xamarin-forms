@@ -1,15 +1,10 @@
-﻿using Modulo1.Pages.Entregadores;
-using Modulo1.Pages.Garcons;
+﻿using Modulo1.Paginas.Entregadores;
+using Modulo1.Paginas.Garcons;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace Modulo1.Pages
+namespace Modulo1.Paginas
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MenuPage : ContentPage
@@ -23,6 +18,7 @@ namespace Modulo1.Pages
         {
             await Navigation.PushAsync(new GarconsPage());
         }
+
         private async void EntregadoresOnClicked(object sender, EventArgs args)
         {
             await Navigation.PushAsync(new EntregadoresPage());

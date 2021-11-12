@@ -18,7 +18,7 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
     <DebugSymbols>true</DebugSymbols>
-    <DebugType>portable</DebugType>
+    <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\iPhoneSimulator\Debug</OutputPath>
     <DefineConstants>DEBUG</DefineConstants>
@@ -39,7 +39,7 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
     <DebugSymbols>true</DebugSymbols>
-    <DebugType>portable</DebugType>
+    <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\iPhone\Debug</OutputPath>
     <DefineConstants>DEBUG</DefineConstants>
@@ -123,17 +123,62 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
-    <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
+    <PackageReference Include="Xamarin.Forms" Version="4.5.0.495" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.3.1" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
     <ProjectReference Include="..\Modulo1\Modulo1.csproj">
-      <Project>{94A29621-A99C-417E-AB9F-19E9E60ED1B0}</Project>
+      <Project>{3C144FF0-EE11-494E-87E7-64CECADF2786}</Project>
       <Name>Modulo1</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <BundleResource Include="Resources\garcon_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\garcon_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\garcon_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\garcon_4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\garcon_5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\garcon_6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\garcon_7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\garcon_8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\garcon_9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\garcon_10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icone_entregador.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icone_entregadores.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icone_garcon.png" />
+  </ItemGroup>
+  <ItemGroup>
     <BundleResource Include="Resources\icone_garcons.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icone_list.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icone_new.png" />
   </ItemGroup>
 </Project>

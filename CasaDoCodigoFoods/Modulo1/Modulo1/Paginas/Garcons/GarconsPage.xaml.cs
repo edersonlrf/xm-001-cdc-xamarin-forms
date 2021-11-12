@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace Modulo1.Pages.Garcons
+namespace Modulo1.Paginas.Garcons
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class GarconsPage : ContentPage

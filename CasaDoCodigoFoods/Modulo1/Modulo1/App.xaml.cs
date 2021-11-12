@@ -1,4 +1,4 @@
-﻿using Modulo1.Pages;
+﻿using Modulo1.Paginas;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;

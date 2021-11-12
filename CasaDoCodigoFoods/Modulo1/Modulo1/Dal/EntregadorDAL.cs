@@ -1,8 +1,5 @@
 ﻿using Modulo1.Modelo;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Text;
 
 namespace Modulo1.Dal
 {

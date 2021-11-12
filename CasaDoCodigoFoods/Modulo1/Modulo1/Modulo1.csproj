@@ -11,24 +11,24 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
-    <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
+    <PackageReference Include="Xamarin.Forms" Version="4.5.0.495" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.3.1" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Pages\Entregadores\EntregadoresListPage.xaml">
+    <EmbeddedResource Update="Paginas\Entregadores\EntregadoresListPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Pages\Entregadores\EntregadoresNewPage.xaml">
+    <EmbeddedResource Update="Paginas\Entregadores\EntregadoresNewPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Pages\Entregadores\EntregadoresPage.xaml">
+    <EmbeddedResource Update="Paginas\Entregadores\EntregadoresPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Pages\Garcons\GarconsPage.xaml">
+    <EmbeddedResource Update="Paginas\Garcons\GarconsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Pages\MenuPage.xaml">
+    <EmbeddedResource Update="Paginas\MenuPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

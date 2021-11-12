@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace Modulo1.Pages.Entregadores
+namespace Modulo1.Paginas.Entregadores
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class EntregadoresListPage : ContentPage

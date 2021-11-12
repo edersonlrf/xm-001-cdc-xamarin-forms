@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Modulo1.Modelo
+﻿namespace Modulo1.Modelo
 {
     public class Entregador
     {
