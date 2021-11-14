@@ -33,5 +33,10 @@ namespace Modulo1.Paginas.TiposItensCardapio
             var item = mi.CommandParameter as TipoItemCardapio;
             await Navigation.PushModalAsync(new TiposItensCardapioEditPage(item));
         }
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            lvTiposItensCardapio.ItemsSource = dalTipoItemCardapio.GetAll();
+        }
     }
 }
