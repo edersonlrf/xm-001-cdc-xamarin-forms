@@ -1,6 +1,6 @@
-﻿using SQLite.Net;
+﻿using SQLite;
 
-namespace Modulo1.Infraestructure
+namespace Modulo1.Infrastructure
 {
     public interface IDatabaseConnection
     {

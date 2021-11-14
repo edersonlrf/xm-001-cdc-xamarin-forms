@@ -17,6 +17,7 @@
             <Button Text="Tipos de Itens" 
                     Image="icone_tipoitemcardapio.png" 
                     Clicked="TiposItensCardapioOnClicked"/>
+            <Button Text="Itens de Cardápio" Image="icone_itenscardapio.png" Clicked="ItensCardapioOnClicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

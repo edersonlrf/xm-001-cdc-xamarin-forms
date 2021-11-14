@@ -9,12 +9,11 @@ namespace Modulo1.Paginas.TiposItensCardapio
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class TiposItensCardapioListPage : ContentPage
     {
-        private TipoItemCardapioDAL dalTipoItemCardapio = TipoItemCardapioDAL.GetInstance();
+        private TipoItemCardapioDAL dalTipoItemCardapio = new TipoItemCardapioDAL();
 
         public TiposItensCardapioListPage()
         {
             InitializeComponent();
-            lvTiposItensCardapio.ItemsSource = dalTipoItemCardapio.GetAll();
         }
 
         public async void OnRemoverClick(object sender, EventArgs e)
@@ -24,7 +23,8 @@ namespace Modulo1.Paginas.TiposItensCardapio
             var opcao = await DisplayAlert("Confirmação de exclusão", "Confirma excluir o item " + item.Nome.ToUpper() + "?", "Sim", "Não");
             if (opcao)
             {
-                dalTipoItemCardapio.Remove(item);
+                dalTipoItemCardapio.DeleteById((long)item.TipoItemCardapioId);
+                lvTiposItensCardapio.ItemsSource = dalTipoItemCardapio.GetAll();
             }
         }
         public async void OnAlterarClick(object sender, EventArgs e)
@@ -33,6 +33,7 @@ namespace Modulo1.Paginas.TiposItensCardapio
             var item = mi.CommandParameter as TipoItemCardapio;
             await Navigation.PushModalAsync(new TiposItensCardapioEditPage(item));
         }
+
         protected override void OnAppearing()
         {
             base.OnAppearing();

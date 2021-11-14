@@ -1,6 +1,5 @@
 ﻿using Modulo1.Dal;
 using Modulo1.Modelo;
-using PCLStorage;
 using Plugin.Media;
 using System;
 using System.IO;
@@ -14,44 +13,38 @@ namespace Modulo1.Paginas.TiposItensCardapio
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class TiposItensCardapioNewPage : ContentPage
     {
-        private TipoItemCardapioDAL dalTiposItensCardapio = TipoItemCardapioDAL.GetInstance();
-        private string caminhoArquivo;
+        private TipoItemCardapioDAL dalTiposItensCardapio = new TipoItemCardapioDAL();
+        private byte[] bytesFoto;
 
         public TiposItensCardapioNewPage()
         {
             InitializeComponent();
             PreparaParaNovoTipoItemCardapio();
-            RegistraClickBotaoCamera(idtipoitemcardapio.Text.Trim());
-            RegistraClickBotaoAlbum(idtipoitemcardapio.Text.Trim());
+            RegistraClickBotaoCamera();
+            RegistraClickBotaoAlbum();
         }
 
         private void PreparaParaNovoTipoItemCardapio()
         {
-            var novoId = dalTiposItensCardapio.GetAll().Max(x => x.Id) + 1;
-            idtipoitemcardapio.Text = novoId.ToString().Trim();
             nome.Text = string.Empty;
             fototipoitemcardapio.Source = null;
         }
 
-        private void RegistraClickBotaoCamera(string idparafoto)
+        private void RegistraClickBotaoCamera()
         {
-            // Criação do método anônimo para captura do evento click do botão
-            BtnCamera.Clicked += async (sender, args) =>
+            BtnAlbum.Clicked += async (sender, args) =>
             {
                 await CrossMedia.Current.Initialize();
-                if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported)
+                if (!CrossMedia.Current.IsPickPhotoSupported)
                 {
-                    DisplayAlert("Não existe câmera", "A câmera não está disponível.", "OK");
+                    await DisplayAlert("Álbum não suportado", "Não existe permissão para acessar o álbum de fotos", "OK");
                     return;
                 }
-                var file = await CrossMedia.Current.TakePhotoAsync(
-                new Plugin.Media.Abstractions.StoreCameraMediaOptions
-                {
-                    Directory = FileSystem.Current.LocalStorage.Name,
-                    Name = "tipoitem_" + idparafoto + ".jpg"
-                });
+                var file = await CrossMedia.Current.PickPhotoAsync();
+
                 if (file == null)
                     return;
+
                 var stream = file.GetStream();
                 var memoryStream = new MemoryStream();
                 stream.CopyTo(memoryStream);
@@ -65,19 +58,27 @@ namespace Modulo1.Paginas.TiposItensCardapio
             };
         }
 
-        private void RegistraClickBotaoAlbum(string idparafoto)
+        private void RegistraClickBotaoAlbum()
         {
-            BtnAlbum.Clicked += async (sender, args) =>
+            BtnCamera.Clicked += async (sender, args) =>
             {
                 await CrossMedia.Current.Initialize();
-                if (!CrossMedia.Current.IsPickPhotoSupported)
+                if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported)
                 {
-                    DisplayAlert("Álbum não suportado", "Não existe permissão para acessar o álbum de fotos", "OK");
+                    await DisplayAlert("Não existe câmera", "A câmera não está disponível.", "OK");
                     return;
                 }
-                var file = await CrossMedia.Current.PickPhotoAsync();
+                var file = await CrossMedia.Current.TakePhotoAsync(
+                    new Plugin.Media.Abstractions.StoreCameraMediaOptions
+                    {
+                        Directory = "Fotos",
+                        Name = "tipoitem.jpg",
+                        SaveToAlbum = true
+                    });
+
                 if (file == null)
                     return;
+
                 var stream = file.GetStream();
                 var memoryStream = new MemoryStream();
                 stream.CopyTo(memoryStream);
@@ -96,7 +97,8 @@ namespace Modulo1.Paginas.TiposItensCardapio
             if (nome.Text.Trim() == string.Empty)
             {
                 this.DisplayAlert("Erro",
-                "Você precisa informar o nome para o novo tipo de item do cardápio.", "Ok");
+                    "Você precisa informar o nome para o novo tipo de item do cardápio.",
+                    "Ok");
             }
             else
             {

@@ -13,7 +13,7 @@ namespace Modulo1.Paginas.TiposItensCardapio
     {
         private TipoItemCardapio tipoItemCardapio;
         private string caminhoArquivo;
-        private TipoItemCardapioDAL dalTiposItensCardapio = TipoItemCardapioDAL.GetInstance();
+        private TipoItemCardapioDAL dalTiposItensCardapio = new TipoItemCardapioDAL();
 
         public TiposItensCardapioEditPage(TipoItemCardapio tipoItemCardapio)
         {
@@ -26,7 +26,7 @@ namespace Modulo1.Paginas.TiposItensCardapio
         private void PopularFormulario(TipoItemCardapio tipoItemCardapio)
         {
             this.tipoItemCardapio = tipoItemCardapio;
-            idtipoitemcardapio.Text = tipoItemCardapio.Id.ToString();
+            idtipoitemcardapio.Text = tipoItemCardapio.TipoItemCardapioId.ToString();
             nome.Text = tipoItemCardapio.Nome;
             caminhoArquivo = tipoItemCardapio.CaminhoArquivoFoto;
             fototipoitemcardapio.Source = ImageSource.FromFile(tipoItemCardapio.CaminhoArquivoFoto);

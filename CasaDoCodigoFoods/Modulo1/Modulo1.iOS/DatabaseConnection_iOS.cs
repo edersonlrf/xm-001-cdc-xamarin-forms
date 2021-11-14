@@ -1,7 +1,6 @@
-﻿using Modulo1.Infraestructure;
+﻿using Modulo1.Infrastructure;
 using Modulo1.iOS;
-using SQLite.Net;
-using SQLite.Net.Platform.XamarinIOS;
+using SQLite;
 using System;
 using System.IO;
 
@@ -12,12 +11,8 @@ namespace Modulo1.iOS
     {
         public SQLiteConnection DbConnection()
         {
-            var dbName = "CCFoodsDb.db3";
-            string personalFolder = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-            string libraryFolder = Path.Combine(personalFolder, "..", "Library");
-            var path = Path.Combine(libraryFolder, dbName);
-            var platform = new SQLitePlatformIOS();
-            return new SQLiteConnection(platform, path);
+            var path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "..", "Library", "CCFoodsDb.db");
+            return new SQLiteConnection(path);
         }
     }
 }

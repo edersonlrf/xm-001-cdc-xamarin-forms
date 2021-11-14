@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
-using System.Text;
 using Xamarin.Forms;
 
 namespace Modulo1.Converters
@@ -15,8 +13,7 @@ namespace Modulo1.Converters
             if (value != null)
             {
                 byte[] byteImageData = (byte[])value;
-                objImageSource = ImageSource.FromStream(() => new
-                MemoryStream(byteImageData));
+                objImageSource = ImageSource.FromStream(() => new MemoryStream(byteImageData));
             }
             else
             {
@@ -24,6 +21,7 @@ namespace Modulo1.Converters
             }
             return objImageSource;
         }
+
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
             throw new NotImplementedException();
