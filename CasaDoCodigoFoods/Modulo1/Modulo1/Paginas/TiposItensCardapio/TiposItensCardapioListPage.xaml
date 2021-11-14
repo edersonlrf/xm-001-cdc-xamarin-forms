@@ -5,6 +5,11 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="Modulo1.Paginas.TiposItensCardapio.TiposItensCardapioListPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <conv:ByteToImageSourceConverter x:Key="convImage"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
         <StackLayout>
             <StackLayout  Padding="5, 20, 5, 20">
