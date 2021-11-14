@@ -1,10 +1,13 @@
-﻿namespace Modulo1.Modelo
+﻿using SQLite.Net.Attributes;
+
+namespace Modulo1.Modelo
 {
     public class TipoItemCardapio
     {
-        public long Id { get; set; }
+        [PrimaryKey, AutoIncrement]
+        public long? TipoItemCardapioId { get; set; }
         public string Nome { get; set; }
-        public string CaminhoArquivoFoto { get; set; }
+        public byte[] Foto { get; set; }
         public override bool Equals(object obj)
         {
             TipoItemCardapio tipoItemCardapio = obj as TipoItemCardapio;
@@ -12,12 +15,11 @@
             {
                 return false;
             }
-            return (Id.Equals(tipoItemCardapio.Id));
+            return (TipoItemCardapioId.Equals(tipoItemCardapio.TipoItemCardapioId));
         }
-
         public override int GetHashCode()
         {
-            return Id.GetHashCode();
+            return TipoItemCardapioId.GetHashCode();
         }
     }
 }
